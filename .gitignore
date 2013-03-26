@@ -1,3 +1,9 @@
+cpquota
+
+# Netbeans project
+build
+dist
+
 # Object files
 *.o
 

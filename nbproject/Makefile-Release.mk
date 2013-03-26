@@ -10,35 +10,29 @@
 # Environment
 MKDIR=mkdir
 CP=cp
-GREP=grep
-NM=nm
 CCADMIN=CCadmin
 RANLIB=ranlib
-CC=cc
+CC=gcc
 CCC=g++
 CXX=g++
-FC=gfortran
+FC=
 AS=as
 
 # Macros
-CND_PLATFORM=GNU-Windows
-CND_DLIB_EXT=dll
+CND_PLATFORM=GNU-Generic
 CND_CONF=Release
 CND_DISTDIR=dist
-CND_BUILDDIR=build
 
 # Include project Makefile
 include Makefile
 
 # Object Directory
-OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
+OBJECTDIR=build/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/maildirgetquota.o \
-	${OBJECTDIR}/maildiropen.o \
 	${OBJECTDIR}/main.o
-
 
 # C Compiler Flags
 CFLAGS=
@@ -58,21 +52,16 @@ LDLIBSOPTIONS=-L/usr/local/lib/courier-authlib -lcourierauth
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
-	"${MAKE}"  -f nbproject/Makefile-${CND_CONF}.mk ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/cpquota.exe
+	${MAKE}  -f nbproject/Makefile-Release.mk dist/Release/GNU-Generic/cpquota
 
-${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/cpquota.exe: ${OBJECTFILES}
-	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/cpquota ${OBJECTFILES} ${LDLIBSOPTIONS} -s
+dist/Release/GNU-Generic/cpquota: ${OBJECTFILES}
+	${MKDIR} -p dist/Release/GNU-Generic
+	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/cpquota -s ${OBJECTFILES} ${LDLIBSOPTIONS} 
 
 ${OBJECTDIR}/maildirgetquota.o: nbproject/Makefile-${CND_CONF}.mk maildirgetquota.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
 	$(COMPILE.c) -O2 -s -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/maildirgetquota.o maildirgetquota.c
-
-${OBJECTDIR}/maildiropen.o: nbproject/Makefile-${CND_CONF}.mk maildiropen.c 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} $@.d
-	$(COMPILE.c) -O2 -s -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/maildiropen.o maildiropen.c
 
 ${OBJECTDIR}/main.o: nbproject/Makefile-${CND_CONF}.mk main.c 
 	${MKDIR} -p ${OBJECTDIR}
@@ -84,8 +73,8 @@ ${OBJECTDIR}/main.o: nbproject/Makefile-${CND_CONF}.mk main.c
 
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
-	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/cpquota.exe
+	${RM} -r build/Release
+	${RM} dist/Release/GNU-Generic/cpquota
 
 # Subprojects
 .clean-subprojects:

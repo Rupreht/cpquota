@@ -4,6 +4,9 @@
 /*
  ** Copyright 1998 - 1999 Double Precision, Inc.
  ** See COPYING for distribution information.
+ maildrop maildir/maildirgetquota.h
+ and
+ courier
  */
 
 #if     HAVE_CONFIG_H
