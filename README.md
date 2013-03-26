@@ -17,7 +17,7 @@
 	    user=vmail:courier argv=/usr/local/sbin/cpquota -d
 	...
 
-Group ":courier" luck authdaemond/socket
+Group ":courier" look authdaemond/socket
 
 /etc/postfix/main.cf
 
