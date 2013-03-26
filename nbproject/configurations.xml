@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="88">
-  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+<configurationDescriptor version="62">
+  <logicalFolder name="root" displayName="root" projectFiles="true">
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
@@ -16,8 +16,6 @@
       <itemPath>authstaticlist.h</itemPath>
       <itemPath>maildirgetquota.c</itemPath>
       <itemPath>maildirgetquota.h</itemPath>
-      <itemPath>maildirmisc.h</itemPath>
-      <itemPath>maildiropen.c</itemPath>
       <itemPath>main.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
@@ -30,8 +28,9 @@
   <confs>
     <conf name="Debug" type="1">
       <toolsSet>
-        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <developmentServer>localhost</developmentServer>
         <compilerSet>GNU|GNU</compilerSet>
+        <platform>5</platform>
       </toolsSet>
       <compileType>
         <cTool>
@@ -48,26 +47,12 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="auth.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="authstaticlist.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="maildirgetquota.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="maildirgetquota.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="maildirmisc.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="maildiropen.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="main.c" ex="false" tool="0" flavor2="0">
-      </item>
     </conf>
     <conf name="Release" type="1">
       <toolsSet>
-        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <developmentServer>localhost</developmentServer>
         <compilerSet>GNU|GNU</compilerSet>
-        <rebuildPropChanged>true</rebuildPropChanged>
+        <platform>5</platform>
       </toolsSet>
       <compileType>
         <cTool>
@@ -93,20 +78,6 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="auth.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="authstaticlist.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="maildirgetquota.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="maildirgetquota.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="maildirmisc.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="maildiropen.c" ex="false" tool="0" flavor2="0">
-      </item>
-      <item path="main.c" ex="false" tool="0" flavor2="0">
-      </item>
     </conf>
   </confs>
 </configurationDescriptor>

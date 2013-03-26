@@ -1,5 +1,5 @@
+
 #include        "maildirgetquota.h"
-#include        "maildirmisc.h"
 #if     HAVE_UNISTD_H
 #include        <unistd.h>
 #endif
@@ -11,6 +11,13 @@
 #include	<errno.h>
 
 #define DIG(c) ( (c) >= '0' && (c) <= '9')
+
+/*
+
+** Copyright 2000-2003 Double Precision, Inc.
+** See COPYING for distribution information.
+    From maildrop
+*/
 
 static void parsequotastr(const char *quota, struct maildirquota *q) {
     off_t i;
@@ -184,6 +191,46 @@ int maildir_openquotafile_init(struct maildirsize *info,
     free(info->maildir);
     return (rc);
 }
+
+
+int maildir_safeopen(const char *path, int mode, int perm)
+{
+	struct  stat    stat1;
+
+	return maildir_safeopen_stat(path, mode, perm, &stat1);
+}
+
+int maildir_safeopen_stat(const char *path, int mode, int perm,
+			    struct stat *stat1)
+{
+	struct  stat    stat2;
+
+	int     fd=open(path, mode
+#ifdef  O_NONBLOCK
+			| O_NONBLOCK
+#else
+			| O_NDELAY
+#endif
+			, perm);
+
+	if (fd < 0)     return (fd);
+	if (fcntl(fd, F_SETFL, (mode & O_APPEND)) || fstat(fd, stat1)
+	    || lstat(path, &stat2))
+	{
+		close(fd);
+		return (-1);
+	}
+
+	if (stat1->st_dev != stat2.st_dev || stat1->st_ino != stat2.st_ino)
+	{
+		close(fd);
+		errno=ENOENT;
+		return (-1);
+	}
+
+	return (fd);
+}
+
 
 void maildir_closequotafile(struct maildirsize *info) {
 	if (info->maildir)
