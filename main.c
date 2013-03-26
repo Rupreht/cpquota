@@ -2,7 +2,7 @@
  * File:   main.c
  * Author: rupreht
  *
- * Created on 12 Март 2010 г., 7:23
+ * Created on 12.03.2010
 
  cpquota: request=smtpd_access_policy
  cpquota: protocol_state=END-OF-MESSAGE
@@ -12,7 +12,7 @@
  cpquota: reverse_client_name=vps1707.2x4.ru
  cpquota: helo_name=vps1707.2x4.ru
  cpquota: sender=info@pickupforum.ru
- cpquota: recipient=duba7@olympus.ru
+ cpquota: recipient=rupreht@olympus.ru
  cpquota: recipient_count=1
  cpquota: queue_id=5DD0571C2AE5
  cpquota: instance=12ef4.4cf612f2.58198.0
