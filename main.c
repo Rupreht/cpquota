@@ -71,7 +71,7 @@ static int callback(struct authinfo *a, void *dummy) {
     struct maildirsize info;
     char mess[256];
     if (maildir_openquotafile_init(&info, a->maildir) == 0) {
-        if (atol(a->quota) - info.size.nbytes - getsize() >= 0) {
+        if (atol(a->quota) - info.size.nbytes - getsize() >= 0 || atol(a->quota) == 0) {
             smtpd_access_policy("dunno");
         }
         else {
