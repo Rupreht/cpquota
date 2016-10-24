@@ -36,10 +36,13 @@
         <cTool>
           <incDir>
             <pElem>/usr/local/include</pElem>
+            <pElem>/usr/include</pElem>
           </incDir>
         </cTool>
         <linkerTool>
           <linkerAddLib>
+            <pElem>/usr/lib/courier-authlib</pElem>
+            <pElem>/usr/lib64/courier-authlib</pElem>
             <pElem>/usr/local/lib/courier-authlib</pElem>
           </linkerAddLib>
           <linkerLibItems>
@@ -59,6 +62,7 @@
           <developmentMode>5</developmentMode>
           <stripSymbols>true</stripSymbols>
           <incDir>
+            <pElem>/usr/include</pElem>
             <pElem>/usr/local/include</pElem>
           </incDir>
         </cTool>

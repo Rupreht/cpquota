@@ -48,7 +48,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=-L/usr/local/lib/courier-authlib -lcourierauth
+LDLIBSOPTIONS=-L/usr/lib/courier-authlib -L/usr/lib64/courier-authlib -L/usr/local/lib/courier-authlib -lcourierauth
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -61,12 +61,12 @@ dist/Release/GNU-Generic/cpquota: ${OBJECTFILES}
 ${OBJECTDIR}/maildirgetquota.o: nbproject/Makefile-${CND_CONF}.mk maildirgetquota.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.c) -O2 -s -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/maildirgetquota.o maildirgetquota.c
+	$(COMPILE.c) -O2 -s -I/usr/include -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/maildirgetquota.o maildirgetquota.c
 
 ${OBJECTDIR}/main.o: nbproject/Makefile-${CND_CONF}.mk main.c 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} $@.d
-	$(COMPILE.c) -O2 -s -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.c
+	$(COMPILE.c) -O2 -s -I/usr/include -I/usr/local/include -MMD -MP -MF $@.d -o ${OBJECTDIR}/main.o main.c
 
 # Subprojects
 .build-subprojects:
